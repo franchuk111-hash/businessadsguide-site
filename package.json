@@ -6,5 +6,8 @@
     "build": "SITE_OUTPUT_DIR=dist node scripts/generate.mjs",
     "build:root": "node scripts/generate.mjs",
     "preview:dist": "python3 -m http.server 8000 -d dist"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
   }
 }

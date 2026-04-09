@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { localeConfigs } from "./locales.mjs";
+import sharp from "sharp";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..");
@@ -100,7 +101,7 @@ const editorialTeamName = "Business Ads Guide Editorial Team";
 const editorialDateIso = "2026-04-08";
 const editorialDateDisplay = "April 8, 2026";
 const contactEmail = "hello@businessadsguide.com";
-const socialPreviewUrl = `${siteUrl}/assets/og-cover.svg`;
+const socialPreviewUrl = `${siteUrl}/assets/og-cover.png`;
 const ga4MeasurementId =
   process.env.GA4_MEASUREMENT_ID?.trim() || "G-B1CP15K4GK";
 const googleAdsId = process.env.GOOGLE_ADS_ID?.trim() ?? "";
@@ -2074,6 +2075,14 @@ function homepage() {
       "@type": "WebSite",
       name: siteName,
       url: `${siteUrl}/`,
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${siteUrl}/site-map/?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
     faqSchema(homeFaq),
   ];
@@ -5510,6 +5519,18 @@ img {
   "/robots.txt": `User-agent: *
 Allow: /
 
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
 Sitemap: ${siteUrl}/sitemap.xml
 `,
 };
@@ -5609,32 +5630,40 @@ function assets() {
 }
 
 function sitemap() {
-  const urls = [
-    routes.home,
-    routes.partnerOffer,
+  const today = new Date().toISOString().split("T")[0];
+
+  const urlEntries = [
+    { url: routes.home,         priority: "1.0", changefreq: "weekly"  },
+    { url: routes.partnerOffer, priority: "0.9", changefreq: "weekly"  },
     ...localeConfigs
       .filter((locale) => locale.code !== "en")
-      .flatMap((locale) => [localizedPath(locale.code, "home"), localizedPath(locale.code, "offer")]),
-    ...seoGrowthPages.map((page) => page.pathName),
-    routes.howItWorks,
-    routes.whyTikTokAds,
-    routes.resources,
-    routes.smallBusiness,
-    routes.agencies,
-    routes.faq,
-    routes.contact,
-    routes.about,
-    routes.markets,
-    ...resourcePages.map((page) => `/resources/${page.slug}.html`),
-    ...geos.map((geo) => `/markets/${geo.slug}.html`),
+      .flatMap((locale) => [
+        { url: localizedPath(locale.code, "home"),  priority: "0.6", changefreq: "monthly" },
+        { url: localizedPath(locale.code, "offer"), priority: "0.6", changefreq: "monthly" },
+      ]),
+    ...seoGrowthPages.map((page) => ({ url: page.pathName, priority: "0.8", changefreq: "weekly" })),
+    { url: routes.howItWorks,   priority: "0.8", changefreq: "monthly" },
+    { url: routes.whyTikTokAds, priority: "0.8", changefreq: "monthly" },
+    { url: routes.resources,    priority: "0.7", changefreq: "monthly" },
+    { url: routes.smallBusiness,priority: "0.7", changefreq: "monthly" },
+    { url: routes.agencies,     priority: "0.7", changefreq: "monthly" },
+    { url: routes.faq,          priority: "0.7", changefreq: "monthly" },
+    { url: routes.contact,      priority: "0.5", changefreq: "yearly"  },
+    { url: routes.about,        priority: "0.5", changefreq: "yearly"  },
+    { url: routes.markets,      priority: "0.7", changefreq: "monthly" },
+    ...resourcePages.map((page) => ({ url: `/resources/${page.slug}.html`, priority: "0.6", changefreq: "monthly" })),
+    ...geos.map((geo) => ({ url: `/markets/${geo.slug}.html`, priority: "0.5", changefreq: "monthly" })),
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls
+${urlEntries
   .map(
-    (url) => `  <url>
+    ({ url, priority, changefreq }) => `  <url>
     <loc>${siteUrl}${url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
   </url>`,
   )
   .join("\n")}
@@ -5645,7 +5674,18 @@ ${urls
 async function writeFile(relativePath, content) {
   const filePath = path.join(root, relativePath);
   await fs.mkdir(path.dirname(filePath), { recursive: true });
-  await fs.writeFile(filePath, content, "utf8");
+  if (Buffer.isBuffer(content)) {
+    await fs.writeFile(filePath, content);
+  } else {
+    await fs.writeFile(filePath, content, "utf8");
+  }
+}
+
+async function generateOgPng(svgString) {
+  return sharp(Buffer.from(svgString))
+    .resize(1200, 630)
+    .png()
+    .toBuffer();
 }
 
 async function main() {
@@ -5663,8 +5703,15 @@ async function main() {
 
   await writeFile("/markets/index.html", marketsIndex());
 
-  for (const [relativePath, content] of Object.entries(assets())) {
+  const siteAssets = assets();
+  for (const [relativePath, content] of Object.entries(siteAssets)) {
     await writeFile(relativePath, content);
+  }
+
+  const svgContent = siteAssets["/assets/og-cover.svg"];
+  if (svgContent) {
+    const pngBuffer = await generateOgPng(svgContent);
+    await writeFile("/assets/og-cover.png", pngBuffer);
   }
 
   await writeFile("/sitemap.xml", sitemap());
