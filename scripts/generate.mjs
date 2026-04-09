@@ -375,6 +375,155 @@ const resourcePages = [
       { q: "Why do localized GEO pages matter?", a: "They reduce friction for visitors who search by market and help align the message with local expectations, objections, and commercial context." },
     ],
   },
+  {
+    slug: "tiktok-ad-creative",
+    title: "TikTok Ad Creative Guide for Business | Business Ads Guide",
+    description:
+      "Learn how businesses approach TikTok ad creative, from hook strategy and format selection to iterating on what works without wasting budget.",
+    eyebrow: "Resources",
+    h1: "TikTok ad creative: what businesses get wrong and how to fix it.",
+    intro:
+      "Creative is the single biggest variable in TikTok ad performance. Most businesses underinvest in the thinking behind a creative brief and overinvest in production before they know what message resonates. This guide covers the structure, logic, and iteration discipline that makes TikTok creative work commercially.",
+    sections: [
+      {
+        eyebrow: "Creative foundation",
+        title: "The hook determines whether anyone sees the rest of the ad.",
+        body: "On TikTok, the first two seconds carry most of the audience-retention decision. A weak opening means most viewers will swipe before the offer is even communicated. Businesses that treat the hook as the primary variable to test — rather than the production quality of the whole ad — tend to get faster signal and better results earlier.",
+        items: [
+          { title: "Problem-first hooks", body: "Lead with a tension the audience already feels. This creates relevance before product awareness." },
+          { title: "Result-first hooks", body: "Show the outcome immediately. Works well when the benefit is visual, fast, and credible." },
+          { title: "Question hooks", body: "Open with a question the target viewer is likely to ask themselves. Creates mental engagement before the offer lands." },
+        ],
+      },
+      {
+        eyebrow: "Format decisions",
+        title: "Match creative format to the stage of the buying journey.",
+        body: "Not every format suits every objective. User-generated content-style ads tend to reduce friction for new audiences unfamiliar with the brand. More polished formats work better when the product is premium, complex, or unfamiliar to the viewer. Spark Ads, which boost organic creator content, work well when there is already an engaged audience to draw from.",
+      },
+      {
+        eyebrow: "Iteration logic",
+        title: "Test one variable at a time and move on faster than feels comfortable.",
+        body: "The goal in early creative testing is to collect signal, not to find a perfect ad. That means shorter test windows, smaller audiences, and a willingness to retire underperformers before emotional attachment sets in. Businesses that iterate with discipline — changing one element per test — build a clearer view of what their audience actually responds to.",
+      },
+      {
+        eyebrow: "Creative brief structure",
+        title: "Brief the creative like a business problem, not an aesthetic request.",
+        body: "Strong creative briefs specify the audience stage, the core tension being addressed, the hook approach being tested, the primary CTA, and the landing-page context the viewer will arrive in. Briefs that skip commercial context tend to produce attractive ads with weak conversion relevance.",
+      },
+    ],
+    faq: [
+      { q: "How many creative variants should a business test at launch?", a: "Most businesses benefit from testing two to four variants with clear hook differences. This gives enough variation to gather signal without splitting budget too thin." },
+      { q: "Does production quality matter on TikTok?", a: "Less than message relevance. An authentic, low-production video with a strong hook and clear offer often outperforms a polished video with a weak or generic message." },
+    ],
+  },
+  {
+    slug: "tiktok-audience-targeting",
+    title: "TikTok Audience Targeting for Business | Business Ads Guide",
+    description:
+      "Understand how businesses approach TikTok audience targeting, from interest and behaviour signals to lookalike strategies and exclusion logic.",
+    eyebrow: "Resources",
+    h1: "TikTok audience targeting: a business-first approach to reaching the right people.",
+    intro:
+      "Targeting on TikTok is less about precise demographic control and more about giving the algorithm enough signal to find a productive audience. Businesses that try to over-specify targeting often shrink their reach without improving relevance. The smarter approach is to start broad, let creative do the filtering, and refine based on what the data shows.",
+    sections: [
+      {
+        eyebrow: "Targeting philosophy",
+        title: "Broad targeting with strong creative often beats narrow targeting with weak creative.",
+        body: "TikTok's algorithm is effective at finding relevant viewers when creative signals are strong. That means a business using a highly specific interest stack and weak creative will often underperform a business with clear, relevant content and a wider audience pool. Targeting should reduce waste, not replace the job of communicating well.",
+        items: [
+          { title: "Interest-based targeting", body: "Useful for initial audience definition, but should be kept broad enough that the algorithm has room to learn." },
+          { title: "Behavioural signals", body: "Engagement history and in-app behaviour give the platform strong context for finding intent." },
+          { title: "Lookalike audiences", body: "Effective once a business has first-party data — customer lists, pixel events — to seed the model with." },
+        ],
+      },
+      {
+        eyebrow: "Exclusion strategy",
+        title: "Who you exclude is as important as who you include.",
+        body: "Excluding recent converters, lower-intent segments, and irrelevant geographic areas reduces wasted impressions. Strong audience architecture is as much about keeping unproductive spend low as it is about reaching a defined target group. Businesses that skip exclusion logic often see inflated impression counts with lower conversion relevance.",
+      },
+      {
+        eyebrow: "Audience testing",
+        title: "Test audiences like you test creative — one change at a time.",
+        body: "When adjusting targeting, change one variable per test cycle. Combining interest shifts, geographic adjustments, and lookalike thresholds in one test makes it hard to understand what actually moved performance. Treat audience configuration as a structured experiment, not a tuning dial.",
+      },
+    ],
+    faq: [
+      { q: "Should I use broad or narrow targeting on TikTok?", a: "Most businesses perform better with broader initial targeting and strong creative. Narrow targeting can reduce reach before the algorithm has enough signal to find the right audience." },
+      { q: "When should I use lookalike audiences?", a: "Once the business has sufficient first-party data — typically from pixel conversions or a customer list — lookalike audiences can improve targeting quality meaningfully." },
+    ],
+  },
+  {
+    slug: "tiktok-vs-facebook-ads",
+    title: "TikTok vs Facebook Ads: Which Is Right for Your Business? | Business Ads Guide",
+    description:
+      "Compare TikTok and Facebook ads from a business perspective — audience behaviour, creative formats, cost dynamics, and when each platform fits best.",
+    eyebrow: "Resources",
+    h1: "TikTok vs Facebook ads: how businesses should think about the choice.",
+    intro:
+      "The TikTok versus Facebook comparison is rarely about which platform is better in absolute terms. It is about which channel fits the business's current stage, audience behaviour, creative capacity, and commercial goal. Both platforms have genuine strengths — and the right answer depends on context, not platform loyalty.",
+    sections: [
+      {
+        eyebrow: "Audience differences",
+        title: "Platform user behaviour shapes what creative and offers work best.",
+        body: "Facebook audiences browse intentionally and respond to offers that match their existing interests and purchase readiness. TikTok audiences discover content passively, which means ads need to earn attention through entertainment or relevance before the commercial message can land. The implication for businesses is that creative strategy is fundamentally different on each platform.",
+        items: [
+          { title: "TikTok strengths", body: "Upper-funnel awareness, product discovery, and brand recall for younger and mobile-first demographics." },
+          { title: "Facebook strengths", body: "Lower-funnel intent, retargeting, and audiences with established platform purchase behaviour." },
+          { title: "Combined approach", body: "Many businesses use TikTok to create demand and Facebook to capture it — running complementary strategies on each." },
+        ],
+      },
+      {
+        eyebrow: "Creative requirements",
+        title: "TikTok demands more creative iteration than Facebook.",
+        body: "TikTok creative fatigues faster because the platform's feed is high-volume and algorithmically sorted for novelty. Facebook allows longer creative cycles, particularly in retargeting and high-intent segments. Businesses with limited creative production capacity often find Facebook easier to sustain, while those with a strong content production pipeline extract more value from TikTok.",
+      },
+      {
+        eyebrow: "Cost dynamics",
+        title: "Platform cost varies by objective, audience, and creative quality.",
+        body: "Neither platform is consistently cheaper. Cost efficiency on both depends on how well the creative aligns with audience intent and how cleanly the landing path converts attention into action. Businesses that compare CPM or CPC in isolation — without accounting for creative quality and conversion rate — often draw misleading conclusions about platform efficiency.",
+      },
+    ],
+    faq: [
+      { q: "Should a business advertise on TikTok or Facebook first?", a: "It depends on where the target audience is most active, what budget is available for creative iteration, and what the business objective is. New brands with strong video content often find TikTok a more accessible entry point." },
+      { q: "Can a business run both TikTok and Facebook ads simultaneously?", a: "Yes, and many do. The strongest approach treats each platform as a separate channel with its own creative strategy rather than running the same content across both." },
+    ],
+  },
+  {
+    slug: "tiktok-ads-landing-page",
+    title: "TikTok Ads Landing Page Guide for Business | Business Ads Guide",
+    description:
+      "Learn how businesses should design landing pages for TikTok ad traffic — from message match and trust signals to mobile speed and conversion clarity.",
+    eyebrow: "Resources",
+    h1: "TikTok ads landing page: how to convert attention into commercial intent.",
+    intro:
+      "A strong TikTok ad that lands on a weak page is a conversion problem with a media budget attached to it. Most paid traffic underperforms not because the ad failed but because the landing path leaked trust, created friction, or failed to continue the promise that got the click in the first place. This guide focuses on what a landing page must do for TikTok traffic specifically.",
+    sections: [
+      {
+        eyebrow: "Message match",
+        title: "The page must continue what the ad started.",
+        body: "TikTok traffic arrives warm and curious but easily loses interest if the landing page does not immediately confirm the relevance of the click. Message match means the headline, visual, and primary offer on the page reflect the specific hook or promise used in the ad. Businesses that send all campaign traffic to a generic homepage lose most of this continuity — and most of that traffic.",
+        items: [
+          { title: "Headline alignment", body: "The page H1 or first visible claim should echo the ad's core message without repeating it word for word." },
+          { title: "Visual continuity", body: "If the ad featured a specific product or person, the page should reinforce that context immediately on load." },
+          { title: "Offer clarity", body: "Make the primary action — whether it is a signup, a product add-to-cart, or a form — obvious within the first screen." },
+        ],
+      },
+      {
+        eyebrow: "Trust signals",
+        title: "Mobile visitors from TikTok need fast trust confirmation.",
+        body: "TikTok audiences skew mobile and are frequently unfamiliar with the brand before the click. Trust signals — reviews, endorsements, clear brand identity, transparent disclaimers — reduce hesitation in the first few seconds. Businesses that treat trust as a secondary concern often see high click volume paired with low conversion.",
+      },
+      {
+        eyebrow: "Page speed",
+        title: "A slow load is a direct revenue drain for TikTok campaigns.",
+        body: "Mobile users arriving from a short-form video experience have a low tolerance for load delays. Studies consistently show that each additional second of load time reduces conversion probability. For businesses running paid TikTok traffic, page speed is not a technical nicety — it is a media efficiency multiplier.",
+      },
+    ],
+    faq: [
+      { q: "Should TikTok ads always go to a dedicated landing page?", a: "Not always, but in most cases a dedicated page with message match will outperform a generic homepage or product listing for paid traffic from TikTok." },
+      { q: "How fast should a TikTok landing page load?", a: "Target under 2.5 seconds for first contentful paint on mobile. Slower loads on mobile traffic from TikTok typically result in significantly higher bounce rates." },
+    ],
+  },
 ];
 
 const seoGrowthPages = [
@@ -535,32 +684,54 @@ const seoGrowthPages = [
     eyebrow: "Setup Guide",
     h1: "How to run TikTok ads without turning setup into confusion.",
     intro:
-      "This page is for visitors who want a clear operational path. It breaks the process into simple stages and keeps the focus on business readiness, not just button-clicking.",
+      "This page is for visitors who want a clear operational path. It breaks the process into practical stages and keeps the focus on business readiness — not just platform mechanics. Each step builds on the last, so the campaign launches with the right inputs already in place.",
     sections: [
       {
         eyebrow: "Step 1",
         title: "Decide the objective before opening the platform.",
-        body: "Awareness, traffic quality, lead generation, installs, and market validation each call for different campaign logic. The first step is knowing what success should look like.",
+        body: "Awareness, traffic quality, lead generation, app installs, and market validation each call for different campaign logic, bid strategies, and success metrics. Businesses that skip this step often run campaigns that technically launch but fail to produce useful data. The first step is knowing what success should look like — and being specific enough that you can measure it.",
+        items: [
+          { title: "Awareness objective", body: "Use when the priority is reaching new audiences who do not know the brand yet. Measure reach and impression quality rather than conversion." },
+          { title: "Traffic objective", body: "Use when the goal is getting qualified visitors to a specific page. Match the landing page to the ad precisely for this to produce usable signal." },
+          { title: "Conversion objective", body: "Use when the business is ready to measure specific actions — purchases, signups, form completions. Requires the TikTok pixel to be installed and firing correctly before launch." },
+        ],
       },
       {
         eyebrow: "Step 2",
         title: "Prepare the inputs that influence the outcome.",
-        body: "Creative angles, landing page trust, audience assumptions, and tracking events should all be ready before launch. Good setup starts outside the ad account.",
+        body: "Good setup starts outside the ad account. Creative angles, landing page clarity, audience assumptions, and tracking events should all be ready before any campaign is configured. Businesses that skip this preparation stage often diagnose problems after spending budget rather than before.",
         items: [
-          { title: "Creative hooks", body: "Prepare several messages, not one generic promise." },
-          { title: "Landing path", body: "Make the page easy to scan, trustworthy, and aligned with the ad." },
-          { title: "Measurement", body: "Choose one clear event or conversion signal to judge the test." },
+          { title: "Creative hooks", body: "Prepare at least two or three different opening messages. The hook — what appears in the first two seconds — is the primary variable to test before anything else." },
+          { title: "Landing path", body: "Make the landing page easy to scan, mobile-fast, and directly aligned with what the ad promises. Message mismatch between the ad and the page is one of the most common sources of wasted spend." },
+          { title: "Measurement setup", body: "Choose one clear event or conversion signal to judge the test. Multiple undefined goals produce noise rather than actionable learning." },
+          { title: "Audience assumptions", body: "Define the target audience in business terms before translating those into platform targeting. Knowing the audience's decision context makes interest and behaviour selection more accurate." },
         ],
       },
       {
         eyebrow: "Step 3",
         title: "Launch small enough to learn, not to impress.",
-        body: "A disciplined test gives better data than an oversized first campaign. The goal is clarity first, then scale.",
+        body: "A disciplined first campaign gives better data than an oversized launch. The goal in the first phase is clarity — what message worked, what audience responded, what action the landing page captured. Scaling before those answers are clear usually amplifies a weak setup rather than building on a strong one.",
+      },
+      {
+        eyebrow: "Step 4",
+        title: "Optimize based on evidence, not instinct.",
+        body: "After the initial test period, evaluate performance against the objective defined in step one. Pause underperforming creative early. Increase budget only on ad sets showing consistent and credible signal. Avoid the temptation to change multiple variables at once — one change per optimization cycle keeps the learning process interpretable.",
+        items: [
+          { title: "Creative fatigue", body: "If engagement drops significantly on a previously strong ad, introduce a new creative variant rather than increasing the budget on a fading asset." },
+          { title: "Audience refinement", body: "Use the data from the first phase to narrow or shift audience targeting based on which segments converted or engaged most cleanly." },
+          { title: "Landing page iteration", body: "If traffic is landing but not converting, the problem is usually the page rather than the ad. Address conversion rate before scaling traffic volume." },
+        ],
+      },
+      {
+        eyebrow: "Step 5",
+        title: "Decide when the campaign is ready to scale.",
+        body: "Scaling is a decision, not a default next step. The right moment to increase budget is when the business has evidence of message fit, a conversion path that performs consistently, and creative assets that can sustain higher impression volume without immediate fatigue. Scaling before those conditions are met tends to accelerate spend without a proportional improvement in outcome.",
       },
     ],
     faq: [
-      { q: "What is the first step in running TikTok ads?", a: "The first step is deciding the business objective and success metric before campaign setup begins." },
-      { q: "What should I read after this guide?", a: "Cost, pixel, and strategy pages are the most common next steps depending on what is still unclear." },
+      { q: "What is the first step in running TikTok ads?", a: "The first step is deciding the business objective and success metric before campaign setup begins. Without a clear objective, the campaign structure and success criteria are both undefined." },
+      { q: "How much should I spend on a first TikTok campaign?", a: "Start with a contained test budget focused on learning rather than scale. The exact amount depends on the market and objective, but the goal is to generate enough signal to make a data-backed decision — not to reach a large audience immediately." },
+      { q: "What should I read after this guide?", a: "Cost, pixel, and strategy pages are the most common next steps. If tracking setup is unclear, the TikTok pixel guide is usually the highest-priority read before launch." },
     ],
     relatedLinks: [
       ["/tiktok-ads/", "TikTok Ads"],
@@ -812,32 +983,53 @@ const seoGrowthPages = [
     eyebrow: "Strategy Guide",
     h1: "TikTok ads strategy: build the plan before the platform complexity.",
     intro:
-      "A stronger TikTok strategy is usually simpler than people expect. It starts with the business goal, matches the creative and format to that goal, defines the tracking logic, and only then moves into testing and scaling decisions.",
+      "A stronger TikTok strategy is usually simpler than most businesses expect. It starts with a clear commercial goal, matches the creative and format to that goal, defines what tracking signal will guide decisions, and only then moves into launch, testing, and scaling. This page breaks that process into the decisions that actually shape results.",
     sections: [
       {
         eyebrow: "Strategic foundation",
         title: "Strategy begins with the business job the channel is supposed to do.",
-        body: "Some advertisers need demand creation, some need lower-funnel efficiency, and some need market-validation data. A good strategy makes that job explicit before budget, formats, and creative are chosen.",
+        body: "Some advertisers need demand creation — reaching audiences who do not yet know the brand. Some need lower-funnel efficiency — converting existing intent into purchases or signups. Some need market-validation data — understanding whether a new geography or audience segment responds well enough to justify further investment. A useful strategy makes that job explicit before budget, formats, and creative are chosen. Without that clarity, every decision in the campaign process becomes harder to evaluate.",
+        items: [
+          { title: "Demand creation", body: "Prioritise reach, creative variety, and content relevance over direct-response metrics in the early stages." },
+          { title: "Lower-funnel efficiency", body: "Focus on conversion event quality, landing-page speed, and audience segments already close to a decision." },
+          { title: "Market validation", body: "Define what early signal looks like — engagement rate, cost per landing page view, or downstream conversion behaviour — before launch rather than after." },
+        ],
       },
       {
         eyebrow: "Testing model",
         title: "A useful strategy creates a repeatable learning loop.",
-        body: "The best teams define what will be tested first, what counts as signal, and what change should happen next if the first result is weak. That makes the campaign easier to improve without overreacting to noise.",
+        body: "The best advertising teams define what will be tested first, what counts as meaningful signal, and what change should happen next if the first result is weak or strong. That structure makes the campaign easier to improve without overreacting to short-term noise. Testing without a defined loop tends to produce a series of expensive guesses rather than a compounding body of commercial knowledge.",
         items: [
-          { title: "One objective", body: "Keep the early campaign tied to one clear business goal so the signal stays readable." },
-          { title: "Small number of variables", body: "Limit the first tests to the biggest strategic questions, not every possible knob." },
-          { title: "Planned next move", body: "Decide in advance what evidence would justify a creative change, landing-page change, or budget increase." },
+          { title: "One objective per test cycle", body: "Keep each campaign phase tied to one clear business goal so the signal stays interpretable rather than spread across conflicting metrics." },
+          { title: "Small number of variables", body: "Limit each test to the highest-priority strategic question — usually creative message, audience segment, or landing-page approach — not every possible setting." },
+          { title: "Planned next move", body: "Decide in advance what evidence would justify a creative change, a landing-page revision, or a budget increase. This prevents both premature scaling and excessive hesitation." },
         ],
+      },
+      {
+        eyebrow: "Creative strategy",
+        title: "The content layer is where most TikTok strategies win or lose.",
+        body: "Creative on TikTok is not decoration. It is the primary signal the algorithm uses to find the right audience and the primary reason a viewer stops scrolling. Businesses that treat creative as an afterthought — or that produce one generic ad and expect performance — consistently underperform businesses that invest in variation, iteration, and hook testing.",
+        items: [
+          { title: "Hook diversity", body: "Develop multiple opening approaches — problem-first, result-first, and curiosity-based — to discover which framing the target audience responds to most." },
+          { title: "Creative iteration cadence", body: "Plan for creative refresh before fatigue sets in. TikTok creative typically shows diminishing returns faster than Facebook or search formats." },
+          { title: "Organic-style content", body: "Ads that feel like native TikTok content — not overly polished or sales-heavy — often see lower CPMs and stronger engagement, particularly in awareness phases." },
+        ],
+      },
+      {
+        eyebrow: "Budget allocation",
+        title: "How budget is distributed matters as much as how much is spent.",
+        body: "A strategy without a clear budget allocation logic tends to either under-invest in learning or over-invest before a clear winner has emerged. Strong budget strategy separates the testing budget from the scaling budget and defines the proof required to move funds from one to the other.",
       },
       {
         eyebrow: "Scale logic",
         title: "Scale only after the strategy proves it can survive more volume.",
-        body: "A campaign deserves more spend when it has shown stable message fit, trustworthy tracking, and a landing path that does not collapse when the click volume rises. That is the moment strategy turns into scale.",
+        body: "A campaign deserves more spend when it has shown stable message fit, trustworthy tracking, and a landing path that does not collapse when click volume rises. Scaling before that moment is reached tends to amplify a weak setup rather than building on a strong one. The clearest signal that a strategy is ready to scale is a consistent conversion pattern across multiple creative variants and audience tests.",
       },
     ],
     faq: [
       { q: "What is the biggest mistake in TikTok ads strategy?", a: "Trying to solve too many business questions inside one early campaign instead of defining one clear objective and one clear learning loop first." },
       { q: "Is strategy different from optimization?", a: "Yes. Strategy decides what to test and why. Optimization improves the campaign after the strategic priorities are already clear." },
+      { q: "How long should a TikTok strategy test cycle last?", a: "Long enough to gather statistically meaningful signal — usually at least seven to fourteen days for most business objectives — but not so long that the business waits for certainty before acting on early evidence." },
     ],
     relatedLinks: [
       ["/tiktok-ads/", "TikTok Ads"],
@@ -2750,13 +2942,20 @@ function contentPage({
     enrichedSections[0] ? firstSentence(enrichedSections[0].body) : "",
     enrichedSections[1] ? firstSentence(enrichedSections[1].body) : "",
   ].filter(Boolean);
+  const contentDates = pageDates(pathName);
+  const pageAuthor = pathName.startsWith("/resources/") ? authors[1] : authors[0];
+  const tocMarkup = enrichedSections.length >= 3
+    ? `<nav class="toc section" aria-label="Table of contents">
+        <p class="eyebrow">On this page</p>
+        <ol>
+          ${enrichedSections.map((s) => `<li><a href="#${s.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}">${s.title}</a></li>`).join("")}
+        </ol>
+      </nav>`
+    : "";
   const editorialMarkup =
     pathName === routes.notFound
       ? ""
-      : `<div class="editorial-meta">
-          <span>Last updated ${editorialDateDisplay}</span>
-          <span>Reviewed by ${editorialTeamName}</span>
-        </div>
+      : `${authorBlock(pageAuthor, contentDates.published, contentDates.modified)}
         <div class="quick-answer">
           <p class="eyebrow">Quick answer</p>
           <p>${quickAnswer}</p>
@@ -2872,10 +3071,13 @@ function contentPage({
           title: "What matters most on this page.",
           items: snippetItems,
         })}
+        ${tocMarkup}
         ${enrichedSections
           .map(
-            (section) => `
-              <section class="section content-section">
+            (section) => {
+              const sectionId = section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+              return `
+              <section class="section content-section" id="${sectionId}">
                 <div class="section-copy">
                   <p class="eyebrow">${section.eyebrow}</p>
                   <h2>${section.title}</h2>
@@ -2898,7 +3100,8 @@ function contentPage({
                     : ""
                 }
               </section>
-            `,
+            `;
+            },
           )
           .join("")}
         ${faqMarkup}
@@ -5591,11 +5794,16 @@ img {
   }
 }
 
-.author-block { border-top: 1px solid var(--line); padding: 24px 0; margin-top: 32px; }
+.author-block { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 0; margin: 24px 0; display: flex; flex-direction: column; gap: 10px; }
 .author-name { font-weight: 700; display: block; font-size: 1rem; }
-.author-role { color: var(--muted); font-size: 0.875rem; display: block; margin-bottom: 8px; }
-.author-bio { font-size: 0.9rem; color: var(--muted); margin: 0; }
-.editorial-dates { font-size: 0.8rem; color: var(--muted); margin-top: 12px; display: flex; gap: 16px; }
+.author-role { color: var(--muted); font-size: 0.875rem; display: block; margin-bottom: 4px; }
+.author-bio { font-size: 0.875rem; color: var(--muted); margin: 0; }
+.editorial-dates { font-size: 0.8rem; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
+.toc { background: var(--surface, #f8f8f8); border-left: 3px solid var(--accent, #1a1a1a); padding: 20px 24px; margin: 32px 0; border-radius: 0 4px 4px 0; }
+.toc .eyebrow { margin-bottom: 8px; }
+.toc ol { margin: 0; padding-left: 20px; }
+.toc li { margin-bottom: 6px; font-size: 0.9rem; }
+.toc a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
 `,
   "/robots.txt": `User-agent: *
 Allow: /
