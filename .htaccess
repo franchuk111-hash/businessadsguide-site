@@ -1,0 +1,51 @@
+DirectoryIndex index.html
+
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/(.*)index\.html$ /$1
+  Redirect 301 /how-it-works.html /how-it-works/
+Redirect 301 /why-tiktok-ads.html /why-tiktok-ads/
+Redirect 301 /small-business.html /small-business/
+Redirect 301 /agencies.html /agencies/
+Redirect 301 /faq.html /faq/
+Redirect 301 /contact.html /contact/
+Redirect 301 /about.html /about/
+Redirect 301 /site-map.html /site-map/
+Redirect 301 /privacy-policy.html /privacy-policy/
+Redirect 301 /terms.html /terms/
+Redirect 301 /affiliate-disclaimer.html /affiliate-disclaimer/
+Redirect 301 /project-blueprint.html /project-blueprint/
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.businessadsguide\.com$ [NC]
+  RewriteRule ^ https://businessadsguide.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'self'; object-src 'none'; upgrade-insecure-requests"
+
+  <FilesMatch "\.(css|js|svg|png|jpe?g|webp|avif)$">
+    Header always set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
