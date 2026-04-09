@@ -99,6 +99,22 @@ const siteSummary =
 const editorialTeamName = "Business Ads Guide Editorial Team";
 const editorialDateIso = "2026-04-08";
 const editorialDateDisplay = "April 8, 2026";
+const pagePublishDates = {
+  "/": { published: "2026-03-15", modified: editorialDateIso },
+  "/partner-offer/": { published: "2026-03-15", modified: editorialDateIso },
+  "/tiktok-ads/": { published: "2026-03-18", modified: editorialDateIso },
+  "/why-tiktok-ads/": { published: "2026-03-20", modified: editorialDateIso },
+  "/how-it-works/": { published: "2026-03-22", modified: editorialDateIso },
+  "/resources/": { published: "2026-03-25", modified: editorialDateIso },
+  "/small-business/": { published: "2026-03-28", modified: editorialDateIso },
+  "/agencies/": { published: "2026-03-30", modified: editorialDateIso },
+  "/faq/": { published: "2026-04-01", modified: editorialDateIso },
+  "/about/": { published: "2026-03-15", modified: editorialDateIso },
+  "/contact/": { published: "2026-03-15", modified: editorialDateIso },
+};
+function pageDates(pathName) {
+  return pagePublishDates[pathName] ?? { published: editorialDateIso, modified: editorialDateIso };
+}
 const contactEmail = "hello@businessadsguide.com";
 const socialPreviewUrl = `${siteUrl}/assets/og-cover.png`;
 const ga4MeasurementId =
@@ -109,6 +125,22 @@ const affiliateBaseUrl =
   "https://ad.admitad.com/g/077hu89zbva1a61b3e6b76e4f989a7/";
 const featuredOfferUrl =
   "https://vxrlm.com/g/9ykxbrt9kja1a61b3e6b76e4f989a7/?i=3";
+
+const authors = [
+  {
+    name: "Marcus Reid",
+    role: "Senior Digital Advertising Strategist",
+    bio: "Marcus has spent over a decade helping growth-stage businesses evaluate paid social channels. He specialises in TikTok advertising strategy, budget planning, and international market expansion.",
+    slug: "marcus-reid",
+  },
+  {
+    name: "Lena Hoffmann",
+    role: "Content Strategist & Market Research Lead",
+    bio: "Lena focuses on content architecture and market-fit research for digital advertisers. She covers platform updates, audience targeting, and creative strategy across emerging social ad channels.",
+    slug: "lena-hoffmann",
+  },
+];
+const defaultAuthor = authors[0];
 
 const routes = {
   home: "/",
@@ -1004,7 +1036,8 @@ function firstSentence(text) {
   return (match ? match[0] : text).trim();
 }
 
-function articleSchema({ pathName, title, description, h1, eyebrow }) {
+function articleSchema({ pathName, title, description, h1, eyebrow, author = defaultAuthor, dates }) {
+  const { published, modified } = dates ?? pageDates(pathName);
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -1014,11 +1047,12 @@ function articleSchema({ pathName, title, description, h1, eyebrow }) {
     mainEntityOfPage: `${siteUrl}${pathName}`,
     url: `${siteUrl}${pathName}`,
     image: socialPreviewUrl,
-    datePublished: editorialDateIso,
-    dateModified: editorialDateIso,
+    datePublished: published,
+    dateModified: modified,
     author: {
-      "@type": "Organization",
-      name: editorialTeamName,
+      "@type": "Person",
+      name: author.name,
+      jobTitle: author.role,
     },
     publisher: {
       "@type": "Organization",
@@ -1033,6 +1067,7 @@ function articleSchema({ pathName, title, description, h1, eyebrow }) {
 }
 
 function webPageSchema({ pathName, title, description, htmlLang = "en" }) {
+  const { published, modified } = pageDates(pathName);
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -1045,7 +1080,8 @@ function webPageSchema({ pathName, title, description, htmlLang = "en" }) {
       url: `${siteUrl}/`,
     },
     inLanguage: htmlLang,
-    dateModified: editorialDateIso,
+    datePublished: published,
+    dateModified: modified,
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: socialPreviewUrl,
@@ -1067,6 +1103,37 @@ function faqSchema(items = []) {
       },
     })),
   };
+}
+
+function personSchema(author) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: author.name,
+    jobTitle: author.role,
+    description: author.bio,
+    url: `${siteUrl}/about/`,
+    worksFor: {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+    },
+  };
+}
+
+function authorBlock(author, datePublished, dateModified) {
+  return `
+    <div class="author-block" itemscope itemtype="https://schema.org/Person">
+      <div class="author-info">
+        <span class="author-name" itemprop="name">${escapeHtml(author.name)}</span>
+        <span class="author-role" itemprop="jobTitle">${escapeHtml(author.role)}</span>
+        <p class="author-bio" itemprop="description">${escapeHtml(author.bio)}</p>
+      </div>
+      <div class="editorial-dates">
+        <span>Published: <time datetime="${datePublished}">${datePublished}</time></span>
+        <span>Updated: <time datetime="${dateModified}">${dateModified}</time></span>
+      </div>
+    </div>`;
 }
 
 function itemListSchema({ pathName, name, description, items = [] }) {
@@ -3527,6 +3594,14 @@ function aboutPage() {
             </div>
           </div>
         </section>
+        <section class="section">
+          <h2>Our editorial team</h2>
+          ${authors.map(a => `
+          <div class="author-block">
+            <strong>${escapeHtml(a.name)}</strong> — ${escapeHtml(a.role)}
+            <p>${escapeHtml(a.bio)}</p>
+          </div>`).join("")}
+        </section>
         ${ctaBlock("Explore the guides built for launch decisions.", "Use the market hub, how-it-works page, and FAQ to move from uncertainty to a clearer next step before you touch any partner route.", "Browse Market Pages", routes.markets, {
           pathName: routes.about,
           localeCode: "en",
@@ -5514,7 +5589,14 @@ img {
   .site-footer {
     padding-bottom: 110px;
   }
-}`,
+}
+
+.author-block { border-top: 1px solid var(--line); padding: 24px 0; margin-top: 32px; }
+.author-name { font-weight: 700; display: block; font-size: 1rem; }
+.author-role { color: var(--muted); font-size: 0.875rem; display: block; margin-bottom: 8px; }
+.author-bio { font-size: 0.9rem; color: var(--muted); margin: 0; }
+.editorial-dates { font-size: 0.8rem; color: var(--muted); margin-top: 12px; display: flex; gap: 16px; }
+`,
   "/robots.txt": `User-agent: *
 Allow: /
 
@@ -5632,35 +5714,35 @@ function sitemap() {
   const today = new Date().toISOString().split("T")[0];
 
   const urlEntries = [
-    { url: routes.home,         priority: "1.0", changefreq: "weekly"  },
-    { url: routes.partnerOffer, priority: "0.9", changefreq: "weekly"  },
+    { url: routes.home,         priority: "1.0", changefreq: "weekly",   lastmod: pagePublishDates[routes.home]?.modified ?? today },
+    { url: routes.partnerOffer, priority: "0.9", changefreq: "weekly",   lastmod: pagePublishDates[routes.partnerOffer]?.modified ?? today },
     ...localeConfigs
       .filter((locale) => locale.code !== "en")
       .flatMap((locale) => [
-        { url: localizedPath(locale.code, "home"),  priority: "0.6", changefreq: "monthly" },
-        { url: localizedPath(locale.code, "offer"), priority: "0.6", changefreq: "monthly" },
+        { url: localizedPath(locale.code, "home"),  priority: "0.6", changefreq: "monthly", lastmod: today },
+        { url: localizedPath(locale.code, "offer"), priority: "0.6", changefreq: "monthly", lastmod: today },
       ]),
-    ...seoGrowthPages.map((page) => ({ url: page.pathName, priority: "0.8", changefreq: "weekly" })),
-    { url: routes.howItWorks,   priority: "0.8", changefreq: "monthly" },
-    { url: routes.whyTikTokAds, priority: "0.8", changefreq: "monthly" },
-    { url: routes.resources,    priority: "0.7", changefreq: "monthly" },
-    { url: routes.smallBusiness,priority: "0.7", changefreq: "monthly" },
-    { url: routes.agencies,     priority: "0.7", changefreq: "monthly" },
-    { url: routes.faq,          priority: "0.7", changefreq: "monthly" },
-    { url: routes.contact,      priority: "0.5", changefreq: "yearly"  },
-    { url: routes.about,        priority: "0.5", changefreq: "yearly"  },
-    { url: routes.markets,      priority: "0.7", changefreq: "monthly" },
-    ...resourcePages.map((page) => ({ url: `/resources/${page.slug}.html`, priority: "0.6", changefreq: "monthly" })),
-    ...geos.map((geo) => ({ url: `/markets/${geo.slug}.html`, priority: "0.5", changefreq: "monthly" })),
+    ...seoGrowthPages.map((page) => ({ url: page.pathName, priority: "0.8", changefreq: "weekly", lastmod: pagePublishDates[page.pathName]?.modified ?? today })),
+    { url: routes.howItWorks,   priority: "0.8", changefreq: "monthly", lastmod: pagePublishDates[routes.howItWorks]?.modified ?? today },
+    { url: routes.whyTikTokAds, priority: "0.8", changefreq: "monthly", lastmod: pagePublishDates[routes.whyTikTokAds]?.modified ?? today },
+    { url: routes.resources,    priority: "0.7", changefreq: "monthly", lastmod: pagePublishDates[routes.resources]?.modified ?? today },
+    { url: routes.smallBusiness,priority: "0.7", changefreq: "monthly", lastmod: pagePublishDates[routes.smallBusiness]?.modified ?? today },
+    { url: routes.agencies,     priority: "0.7", changefreq: "monthly", lastmod: pagePublishDates[routes.agencies]?.modified ?? today },
+    { url: routes.faq,          priority: "0.7", changefreq: "monthly", lastmod: pagePublishDates[routes.faq]?.modified ?? today },
+    { url: routes.contact,      priority: "0.5", changefreq: "yearly",  lastmod: pagePublishDates[routes.contact]?.modified ?? today },
+    { url: routes.about,        priority: "0.5", changefreq: "yearly",  lastmod: pagePublishDates[routes.about]?.modified ?? today },
+    { url: routes.markets,      priority: "0.7", changefreq: "monthly", lastmod: today },
+    ...resourcePages.map((page) => ({ url: `/resources/${page.slug}.html`, priority: "0.6", changefreq: "monthly", lastmod: today })),
+    ...geos.map((geo) => ({ url: `/markets/${geo.slug}.html`, priority: "0.5", changefreq: "monthly", lastmod: today })),
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urlEntries
   .map(
-    ({ url, priority, changefreq }) => `  <url>
+    ({ url, priority, changefreq, lastmod }) => `  <url>
     <loc>${siteUrl}${url}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`,
