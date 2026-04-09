@@ -2,7 +2,6 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { localeConfigs } from "./locales.mjs";
-import sharp from "sharp";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..");
@@ -5681,13 +5680,6 @@ async function writeFile(relativePath, content) {
   }
 }
 
-async function generateOgPng(svgString) {
-  return sharp(Buffer.from(svgString))
-    .resize(1200, 630)
-    .png()
-    .toBuffer();
-}
-
 async function main() {
   if (usingDedicatedOutputDir) {
     await fs.rm(root, { recursive: true, force: true });
@@ -5708,10 +5700,13 @@ async function main() {
     await writeFile(relativePath, content);
   }
 
-  const svgContent = siteAssets["/assets/og-cover.svg"];
-  if (svgContent) {
-    const pngBuffer = await generateOgPng(svgContent);
+  // Copy pre-generated og-cover.png from static assets
+  const ogPngSrc = path.resolve(projectRoot, "assets/og-cover.png");
+  try {
+    const pngBuffer = await fs.readFile(ogPngSrc);
     await writeFile("/assets/og-cover.png", pngBuffer);
+  } catch {
+    // og-cover.png not found in static assets — skipping
   }
 
   await writeFile("/sitemap.xml", sitemap());
