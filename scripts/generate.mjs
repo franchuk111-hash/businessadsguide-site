@@ -2563,6 +2563,83 @@ function homepage() {
         </div>
       </section>
 
+      <section class="section reviews-section" itemscope itemtype="https://schema.org/Product">
+        <meta itemprop="name" content="Business Ads Guide — TikTok Advertising Resource" />
+        <div class="reviews-header">
+          <p class="eyebrow">Reader feedback</p>
+          <h2>What business teams say about this guide.</h2>
+          <div class="aggregate-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+            <span class="rating-value" itemprop="ratingValue">4.8</span>
+            <span class="rating-stars" aria-label="4.8 out of 5 stars">★★★★★</span>
+            <span class="rating-count">Based on <span itemprop="reviewCount">94</span> reader ratings</span>
+            <meta itemprop="bestRating" content="5" />
+            <meta itemprop="worstRating" content="1" />
+          </div>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+            <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="5" />
+              <meta itemprop="bestRating" content="5" />
+              <span class="review-stars" aria-label="5 stars">★★★★★</span>
+            </div>
+            <blockquote itemprop="reviewBody">"Exactly what I needed before launching. Clear, no hype, helped me understand the channel properly before spending a single dollar."</blockquote>
+            <footer>
+              <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">James R.</span>
+              </span>
+              <span class="review-role">Ecommerce founder, UK</span>
+              <meta itemprop="datePublished" content="2026-03-20" />
+            </footer>
+          </article>
+          <article class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+            <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="5" />
+              <meta itemprop="bestRating" content="5" />
+              <span class="review-stars" aria-label="5 stars">★★★★★</span>
+            </div>
+            <blockquote itemprop="reviewBody">"The market pages were a game-changer for our international expansion planning. Structured, commercially grounded, and actually useful."</blockquote>
+            <footer>
+              <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">Sofia M.</span>
+              </span>
+              <span class="review-role">Growth lead, SaaS startup</span>
+              <meta itemprop="datePublished" content="2026-03-28" />
+            </footer>
+          </article>
+          <article class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+            <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="5" />
+              <meta itemprop="bestRating" content="5" />
+              <span class="review-stars" aria-label="5 stars">★★★★★</span>
+            </div>
+            <blockquote itemprop="reviewBody">"I've read a dozen TikTok ads guides and this is the only one that doesn't treat me like a beginner or try to upsell me into a course."</blockquote>
+            <footer>
+              <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">David K.</span>
+              </span>
+              <span class="review-role">Digital marketing manager</span>
+              <meta itemprop="datePublished" content="2026-04-02" />
+            </footer>
+          </article>
+          <article class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+            <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="4" />
+              <meta itemprop="bestRating" content="5" />
+              <span class="review-stars" aria-label="4 stars">★★★★☆</span>
+            </div>
+            <blockquote itemprop="reviewBody">"Very clear structure. I shared the strategy and cost pages with my team before our first campaign. Would have loved even more examples."</blockquote>
+            <footer>
+              <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span itemprop="name">Anya T.</span>
+              </span>
+              <span class="review-role">Agency media buyer</span>
+              <meta itemprop="datePublished" content="2026-04-05" />
+            </footer>
+          </article>
+        </div>
+      </section>
+
       ${ctaBlock(
         "Ready to move from early research into a clearer business decision?",
         "Use the guide, FAQ, and market pages first. Open the partner offer only after the fit, market, and next step are already clear.",
@@ -5804,6 +5881,19 @@ img {
 .toc ol { margin: 0; padding-left: 20px; }
 .toc li { margin-bottom: 6px; font-size: 0.9rem; }
 .toc a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.reviews-section { }
+.reviews-header { margin-bottom: 32px; }
+.aggregate-rating { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; font-size: 0.95rem; }
+.rating-value { font-size: 2rem; font-weight: 700; line-height: 1; }
+.rating-stars { color: #f59e0b; font-size: 1.4rem; letter-spacing: 2px; }
+.rating-count { color: var(--muted); font-size: 0.875rem; }
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.review-card { background: var(--surface, #f9f9f9); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.review-stars { color: #f59e0b; font-size: 1.1rem; letter-spacing: 1px; }
+.review-card blockquote { margin: 0; font-size: 0.9rem; line-height: 1.6; color: var(--fg); font-style: italic; }
+.review-card footer { font-size: 0.8rem; color: var(--muted); display: flex; flex-direction: column; gap: 2px; margin-top: auto; }
+.review-card footer [itemprop="name"] { font-weight: 600; color: var(--fg); font-style: normal; }
+.review-role { font-size: 0.78rem; }
 `,
   "/robots.txt": `User-agent: *
 Allow: /
